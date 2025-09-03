@@ -87,4 +87,28 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get notConnected =>
       'لايمكنك اضافة حمل وانت غير متصل بالمتحكم قم بالاتصال وحاول مجددا';
+
+  @override
+  String get consuming => 'االاستهلاك';
+
+  @override
+  String get state => 'الحالة';
+
+  @override
+  String get auto => 'تلقائي';
+
+  @override
+  String get forcedOff => 'مطفي';
+
+  @override
+  String get forcedOn => 'شغال';
+
+  @override
+  String get confirmMsg => 'هل أنت متأكد أنك تريد تغير حالة الحمل';
+
+  @override
+  String get delete => 'حذف';
+
+  @override
+  String get cancel => 'الغاء';
 }

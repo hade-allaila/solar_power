@@ -5,7 +5,9 @@ import 'package:provider/provider.dart';
 import 'package:solar_app/l10n/app_localizations.dart';
 import 'package:solar_app/logic/addload_provider.dart';
 import 'package:solar_app/theming/app_text_styles.dart';
+import 'package:solar_app/utils/avaliable_loadpins_database_helper.dart';
 import 'package:solar_app/widgets/app_text_form_field.dart';
+import 'package:solar_app/widgets/custom_drop_down.dart';
 import 'package:solar_app/widgets/custom_load_image.dart';
 import 'package:solar_app/widgets/custom_duration_picker.dart';
 
@@ -66,13 +68,7 @@ class AddLoadForm extends StatelessWidget {
                     isNumber: true,
                   ),
                   SizedBox(height: 20.h),
-
-                  AppTextFormField(
-                    controller: context.read<AddloadProvider>().loadPin,
-                    name: AppLocalizations.of(context)!.loadPin,
-                    icon: Icons.outlet,
-                    isNumber: true,
-                  ),
+                  CustomDropDown(),
                   SizedBox(height: 20.h),
 
                   AppTextFormField(
@@ -86,7 +82,14 @@ class AddLoadForm extends StatelessWidget {
                     handleDurationChange: () async {
                       Duration? duration = await showDurationPicker(
                         context: context,
-                        initialTime: Duration(minutes: 30),
+                        initialTime: Duration(
+                          minutes:
+                              AppLocalizations.of(context)!.minOnTime.isNotEmpty
+                              ? int.parse(
+                                  AppLocalizations.of(context)!.minOnTime,
+                                )
+                              : 30,
+                        ),
                       );
                       if (duration != null) {
                         context.read<AddloadProvider>().minOnTime = duration
@@ -101,7 +104,14 @@ class AddLoadForm extends StatelessWidget {
                     handleDurationChange: () async {
                       Duration? duration = await showDurationPicker(
                         context: context,
-                        initialTime: Duration(minutes: 30),
+                        initialTime: Duration(
+                          minutes:
+                              AppLocalizations.of(context)!.maxOnTime.isNotEmpty
+                              ? int.parse(
+                                  AppLocalizations.of(context)!.maxOnTime,
+                                )
+                              : 30,
+                        ),
                       );
                       if (duration != null) {
                         context.read<AddloadProvider>().maxOnTime = duration
@@ -116,7 +126,16 @@ class AddLoadForm extends StatelessWidget {
                     handleDurationChange: () async {
                       Duration? duration = await showDurationPicker(
                         context: context,
-                        initialTime: Duration(minutes: 30),
+                        initialTime: Duration(
+                          minutes:
+                              AppLocalizations.of(
+                                context,
+                              )!.minOffTime.isNotEmpty
+                              ? int.parse(
+                                  AppLocalizations.of(context)!.minOffTime,
+                                )
+                              : 30,
+                        ),
                       );
                       if (duration != null) {
                         context.read<AddloadProvider>().minOffTime = duration
@@ -131,7 +150,16 @@ class AddLoadForm extends StatelessWidget {
                     handleDurationChange: () async {
                       Duration? duration = await showDurationPicker(
                         context: context,
-                        initialTime: Duration(minutes: 30),
+                        initialTime: Duration(
+                          minutes:
+                              AppLocalizations.of(
+                                context,
+                              )!.maxOffTime.isNotEmpty
+                              ? int.parse(
+                                  AppLocalizations.of(context)!.maxOffTime,
+                                )
+                              : 30,
+                        ),
                       );
                       if (duration != null) {
                         context.read<AddloadProvider>().maxOffTime = duration

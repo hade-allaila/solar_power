@@ -253,6 +253,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Sorry but you can\'t add load if you are not connected to the board'**
   String get notConnected;
+
+  /// No description provided for @consuming.
+  ///
+  /// In en, this message translates to:
+  /// **'Consuming'**
+  String get consuming;
+
+  /// No description provided for @state.
+  ///
+  /// In en, this message translates to:
+  /// **'state'**
+  String get state;
+
+  /// No description provided for @auto.
+  ///
+  /// In en, this message translates to:
+  /// **'auto'**
+  String get auto;
+
+  /// No description provided for @forcedOff.
+  ///
+  /// In en, this message translates to:
+  /// **'OFF'**
+  String get forcedOff;
+
+  /// No description provided for @forcedOn.
+  ///
+  /// In en, this message translates to:
+  /// **'ON'**
+  String get forcedOn;
+
+  /// No description provided for @confirmMsg.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure to change load state'**
+  String get confirmMsg;
+
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get delete;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
 }
 
 class _AppLocalizationsDelegate

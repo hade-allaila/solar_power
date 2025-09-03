@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:solar_app/models/home_response_model.dart';
@@ -8,8 +7,10 @@ import 'package:solar_app/models/load_model.dart';
 import 'package:solar_app/networking/api_client.dart';
 import 'package:solar_app/networking/api_response.dart';
 import 'package:solar_app/repos/delete_load.dart';
+import 'package:solar_app/repos/force_load_repo.dart';
 import 'package:solar_app/repos/home_repo.dart';
 import 'package:solar_app/theming/app_text_styles.dart';
+import 'package:solar_app/utils/avaliable_loadpins_database_helper.dart';
 import 'package:solar_app/utils/load_database_helper.dart';
 import 'package:solar_app/utils/print_debug.dart';
 
@@ -52,7 +53,7 @@ class HomeProvider extends ChangeNotifier {
   }
 
   void setTimer() {
-    _timer = Timer.periodic(Duration(seconds: 5), (timer) async {
+    _timer = Timer.periodic(Duration(seconds: 1), (timer) async {
       result = ApiResult.inital;
       try {
         HomeRepo repo = HomeRepo();
@@ -113,6 +114,7 @@ class HomeProvider extends ChangeNotifier {
     data!.devices.addAll(loadsToSync);
     var homeRepo = HomeRepo();
     if (loadsToSync.isNotEmpty) {
+      // ignore: avoid_function_literals_in_foreach_calls
       loadsToSync.forEach((e) async {
         await homeRepo.addLoad(e);
       });
@@ -120,7 +122,12 @@ class HomeProvider extends ChangeNotifier {
     return;
   }
 
-  void handelDeleteLoad(String deviceName, BuildContext context) async {
+  void handelDeleteLoad(
+    String deviceName,
+    BuildContext context,
+    int pin,
+  ) async {
+    await  AvaliableLoadpinsDatabaseHelper.instance.togglePinState(pin, 1);
     var device = data!.devices
         .where((e) => e.deviceName == deviceName)
         .toList()[0];
@@ -147,8 +154,22 @@ class HomeProvider extends ChangeNotifier {
     await repo.deleteLoad(deviceName);
     await LoadDatabaseHelper.instance.deleteLoad(deviceName);
   }
-  void handleLoadTap(LoadModel load) { 
-    
+
+  void handleLoadTap(LoadModel load) async {
+    var repo = ForceLoadRepo();
+    int value = 0;
+    if (load.loadState == LoadState.auto) {
+      print('----------------- state by Me --------------------------');
+      print(load.loadState);
+      value = 1;
+    } else if (load.loadState == LoadState.forcedOff) {
+      value = 2;
+    } else {
+      value = 0;
+    }
+    await repo.forceload(load.deviceName, value);
+    // print((res as Success).data);
+    notifyListeners();
   }
 }
 

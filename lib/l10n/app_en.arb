@@ -24,5 +24,13 @@
   "ok": "ok",
   "connectionLost": "Connection lost to the system, please check the IP address",
   "reConnect": "ReConnect",
-  "notConnected": "Sorry but you can't add load if you are not connected to the board"
+  "notConnected": "Sorry but you can't add load if you are not connected to the board",
+  "consuming": "Consuming",
+  "state": "state",
+  "auto": "auto",
+  "forcedOff": "OFF",
+  "forcedOn": "ON",
+  "confirmMsg": "Are you sure to change load state",
+  "delete": "Delete",
+  "cancel": "Cancel"
 }

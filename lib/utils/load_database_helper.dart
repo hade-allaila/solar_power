@@ -23,7 +23,7 @@ class LoadDatabaseHelper {
   _createDB(Database db, int version) async {
     // When creating the db, create the table
     await db.execute(
-      'CREATE TABLE $tableName (name TEXT PRIMARY KEY, pin INTEGER,priority INTEGER, operationPower INTEGER, minOnTime TEXT, maxOnTime TEXT, minOffTime Text, maxOffTime TEXT, image TEXT default null)',
+      'CREATE TABLE $tableName (name TEXT PRIMARY KEY, pin INTEGER,priority INTEGER, operationPower INTEGER, minOnTime TEXT, maxOnTime TEXT, minOffTime Text, maxOffTime TEXT, image TEXT default null, loadState INTEGER )',
     );
   }
 

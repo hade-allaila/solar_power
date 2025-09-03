@@ -57,6 +57,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                     onSubmitted: (value) {
+                      print("submitting");
                       state.handleIpChange();
                     },
                   ),

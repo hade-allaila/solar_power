@@ -31,7 +31,7 @@ class _SolarPowerAppState extends State<SolarPowerApp> {
             debugShowCheckedModeBanner: false,
             theme: ThemeData(primarySwatch: Colors.blue),
             initialRoute: AppRoutes.home,
-            onGenerateRoute: AppRouter().generateRoue,
+            onGenerateRoute: AppRouter().generateRoute,
           ),
         ),
       ),

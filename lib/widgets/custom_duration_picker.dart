@@ -5,7 +5,7 @@ import 'package:solar_app/utils/format_time.dart';
 class CustomDurationPicker extends StatefulWidget {
   final String text;
   final VoidCallback handleDurationChange;
-  CustomDurationPicker({
+  const CustomDurationPicker({
     super.key,
     required this.text,
     required this.handleDurationChange,
@@ -17,10 +17,12 @@ class CustomDurationPicker extends StatefulWidget {
 
 class _CustomDurationPickerState extends State<CustomDurationPicker> {
   Duration? d;
+  TextEditingController controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       readOnly: true,
+      controller: controller,
       decoration: InputDecoration(
         label: Text(widget.text),
         filled: true,

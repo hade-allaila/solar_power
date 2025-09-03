@@ -87,4 +87,28 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get notConnected =>
       'Sorry but you can\'t add load if you are not connected to the board';
+
+  @override
+  String get consuming => 'Consuming';
+
+  @override
+  String get state => 'state';
+
+  @override
+  String get auto => 'auto';
+
+  @override
+  String get forcedOff => 'OFF';
+
+  @override
+  String get forcedOn => 'ON';
+
+  @override
+  String get confirmMsg => 'Are you sure to change load state';
+
+  @override
+  String get delete => 'Delete';
+
+  @override
+  String get cancel => 'Cancel';
 }

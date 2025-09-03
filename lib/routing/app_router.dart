@@ -7,12 +7,12 @@ import 'package:solar_app/screens/add_load_screen.dart';
 import 'package:solar_app/screens/main_screen.dart';
 
 class AppRouter {
-  Route? generateRoue(RouteSettings settings) {
+  Route? generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case AppRoutes.addLoad:
         return MaterialPageRoute(
           builder: (_) => ChangeNotifierProvider(
-            create: (_) => AddloadProvider(),
+            create: (_) => AddloadProvider()..getPinLoadNumber(),
             child: AddLoadScreen(),
           ),
         );
