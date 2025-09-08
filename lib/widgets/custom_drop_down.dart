@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:solar_app/l10n/app_localizations.dart';
 import 'package:solar_app/logic/addload_provider.dart';
-import 'package:solar_app/utils/avaliable_loadpins_database_helper.dart';
 
 class CustomDropDown extends StatefulWidget {
   const CustomDropDown({super.key});

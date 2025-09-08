@@ -34,10 +34,10 @@ class ApiClient {
   }
 
   void configureDio(String? ipAddress) {
-    if (ipAddress != null) {
+    if (ipAddress != null && ipAddress.isNotEmpty) {
       dio.options.baseUrl = "http://$ipAddress";
     } else {
-      dio.options.baseUrl = "http://solar-manager.local";
+      dio.options.baseUrl = "http://192.168.1.102";
     }
     dio.options.connectTimeout = Duration(seconds: 10);
     dio.options.receiveTimeout = Duration(seconds: 10);

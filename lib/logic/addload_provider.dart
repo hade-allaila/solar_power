@@ -10,6 +10,7 @@ import 'package:solar_app/widgets/dialogs/success_dialog.dart';
 class AddloadProvider extends ChangeNotifier {
   bool isAdded = false;
   bool isLoading = false;
+  String? timerValue;
   TextEditingController loadName = TextEditingController();
   TextEditingController loadPriority = TextEditingController();
   int loadPin = 0;

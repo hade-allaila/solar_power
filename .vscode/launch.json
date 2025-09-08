@@ -10,17 +10,5 @@
       "type": "dart",
       "flutterMode": "debug"
     },
-    {
-      "name": "solar_app (profile mode)",
-      "request": "launch",
-      "type": "dart",
-      "flutterMode": "profile"
-    },
-    {
-      "name": "solar_app (release mode)",
-      "request": "launch",
-      "type": "dart",
-      "flutterMode": "release"
-    }
   ]
 }

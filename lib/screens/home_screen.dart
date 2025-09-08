@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:solar_app/l10n/app_localizations.dart';
 import 'package:solar_app/logic/home_provider.dart';
 import 'package:solar_app/theming/app_text_styles.dart';
+import 'package:solar_app/widgets/dialogs/empty_feild_dialog.dart';
 import 'package:solar_app/widgets/load_widget.dart';
 import 'package:solar_app/widgets/system_status_consumer.dart';
 
@@ -57,15 +58,25 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                     onSubmitted: (value) {
-                      print("submitting");
-                      state.handleIpChange();
+                      if (value.isEmpty) {
+                        print("is empty");
+                        emptyFeildDailog(context);
+                        return;
+                      } else {
+                        state.handleIpChange();
+                      }
                     },
                   ),
                   SizedBox(height: 20.h),
 
                   TextButton(
                     onPressed: () {
-                      state.handleIpChange();
+                      if (state.ipController.text.isEmpty) {
+                        emptyFeildDailog(context);
+                        return;
+                      } else {
+                        state.handleIpChange();
+                      }
                     },
                     style: TextButton.styleFrom(
                       backgroundColor: Colors.blue,

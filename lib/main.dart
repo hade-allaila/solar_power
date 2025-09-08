@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:solar_app/networking/api_client.dart';
 import 'package:solar_app/solar_power_app.dart';
-import 'package:solar_app/utils/avaliable_loadpins_database_helper.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
